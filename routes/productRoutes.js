@@ -9,11 +9,11 @@ import {
     messagesProduct
  } from '../controllers/productController.js'
 
- router.get('/products/', getProducts)
+ router.get('/products', getProducts)
 
  router.get('/products/:id', getProduct)
 
- router.post('/orders', createProduct)
+ router.post('/products', createProduct)
 
  router.put('/products/:id', updateProduct)
 

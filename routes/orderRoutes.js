@@ -1,9 +1,12 @@
 import  express  from "express"
 const router = express.Router()
 import {   
-    sparaOrder
+    createOrder,
+    getAllOrder
  } from '../controllers/orderController.js'
+import { verifyToken } from "../middleware/authmiddleware.js"
 
- router.post('/orders', sparaOrder)
+ router.post('/orders', verifyToken, createOrder )
+ router.get("/orders" , verifyToken , getAllOrder )
 
  export default router

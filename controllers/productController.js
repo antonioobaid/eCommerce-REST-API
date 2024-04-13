@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
-import Product from "../models/productModel.js"; 
-import product from "../models/productModel.js";
+import product from "../models/productModel.js"; 
 
-mongoose.set('debug', true);
+
+
 
 export const getProducts = async (req, res) => {
    try {
-      const products = await Product.find();
+      const products = await product.find();
       res.status(200).json(products);
    } catch (err) {
       res.status(500).json({
@@ -27,7 +27,7 @@ export const getProduct = async (req, res) => {
             return;
         }
 
-        const oneProduct = await Product.findById(id); 
+        const oneProduct = await product.findById(id); 
         res.status(200).json(oneProduct);
     } catch (err) {
         res.status(500).json({
@@ -46,7 +46,7 @@ export const createProduct = async (req, res) => {
             });
         }
 
-        const newProduct = await Product.create({ name, price, description, category, images });
+        const newProduct = await product.create({ name, price, description, category, images });
         res.status(201).json({
             message: 'Product created successfully',
             product: newProduct
